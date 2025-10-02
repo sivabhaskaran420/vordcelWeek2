@@ -47,4 +47,4 @@ async def latency_check(request: Request):
         }
         result[region] = region_result
 
-    return JSONResponse(result)
+   return JSONResponse({"regions": result})
