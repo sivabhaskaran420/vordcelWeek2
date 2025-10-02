@@ -40,7 +40,7 @@ async def latency_check(request: Request):
         region_result = {
             "avg_latency": round(np.mean(latencies), 2),
             "p95_latency": round(np.percentile(latencies, 95), 2),
-            "avg_uptime": round(np.mean(uptimes) / 100, 4),
+            "avg_uptime": round(np.mean(uptimes), 3),
             "breaches": breaches,
         }
         result[region] = region_result
