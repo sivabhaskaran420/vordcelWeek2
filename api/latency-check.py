@@ -8,12 +8,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],            # Allow all domains
-    allow_credentials=True,
-    allow_methods=["*"],            # Allow all methods: GET, POST, etc.
-    allow_headers=["*"],  
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
     expose_headers=["*"]
-    
 )
 
 with open("q-vercel-latency.json", "r") as f:
@@ -46,5 +44,5 @@ async def latency_check(request: Request):
             "breaches": breaches,
         }
         result[region] = region_result
-
-	return JSONResponse({"regions": result})
+    
+    return JSONResponse({"regions": result})
