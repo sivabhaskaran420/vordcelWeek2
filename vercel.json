@@ -10,7 +10,7 @@
     {
       "src": "/api/latency-check",
       "dest": "api/latency-check.py"
-    }
+    },
     {
       "src": "/",
       "dest": "api/latency-check.py"
