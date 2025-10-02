@@ -16,7 +16,7 @@ app.add_middleware(
 with open("q-vercel-latency.json", "r") as f:
     telemetry = json.load(f)
 
-@app.post("/")
+@app.get("/")
 async def latency_check(request: Request):
     body = await request.json()
     regions = body.get("regions", [])
