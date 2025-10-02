@@ -8,13 +8,18 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["POST"],
-    allow_headers=["*"],
+    allow_origins=["*"],            # Allow all domains
+    allow_credentials=True,
+    allow_methods=["*"],            # Allow all methods: GET, POST, etc.
+    allow_headers=["*"],            # Allow all headers
 )
 
 with open("q-vercel-latency.json", "r") as f:
     telemetry = json.load(f)
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
 
 @app.post("/api/latency-check")
 async def latency_check(request: Request):
