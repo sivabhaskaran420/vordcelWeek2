@@ -11,7 +11,9 @@ app.add_middleware(
     allow_origins=["*"],            # Allow all domains
     allow_credentials=True,
     allow_methods=["*"],            # Allow all methods: GET, POST, etc.
-    allow_headers=["*"],            # Allow all headers
+    allow_headers=["*"],  
+    expose_headers=["*"]
+    
 )
 
 with open("q-vercel-latency.json", "r") as f:
